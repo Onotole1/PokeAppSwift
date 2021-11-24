@@ -1,0 +1,58 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Kingfisher (6.3.0)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
+  - Swinject (2.7.1)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - Kingfisher (= 6.3.0)
+  - RxAlamofire (= 6.1.1)
+  - RxCocoa (= 6.1.0)
+  - RxSwift (= 6.1.0)
+  - Swinject (= 2.7.1)
+  - SwinjectStoryboard (from `https://github.com/anuragajwani/SwinjectStoryboard`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - RxAlamofire
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - Swinject
+
+EXTERNAL SOURCES:
+  SwinjectStoryboard:
+    :git: https://github.com/anuragajwani/SwinjectStoryboard
+
+CHECKOUT OPTIONS:
+  SwinjectStoryboard:
+    :commit: 821b5abd9d0bdfb05b589de652901152f4d5fa8f
+    :git: https://github.com/anuragajwani/SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+
+PODFILE CHECKSUM: 26c870fff942ad49eb9b890357525d75ed49ae9d
+
+COCOAPODS: 1.10.1

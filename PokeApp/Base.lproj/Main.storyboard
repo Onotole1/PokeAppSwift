@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YP8-sy-ZVh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ylN-vN-sMH">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLu-Tk-wms">
+                                <rect key="frame" x="0.0" y="808" width="414" height="30"/>
+                                <state key="normal" title="Retry"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjg-62-HRh">
+                                <rect key="frame" x="119.5" y="437.5" width="175.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YP8-sy-ZVh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="214-RX-C5J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XLu-Tk-wms" secondAttribute="bottom" constant="24" id="9aa-ej-lBi"/>
+                            <constraint firstItem="YP8-sy-ZVh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CTI-zS-SsC"/>
+                            <constraint firstItem="ylN-vN-sMH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fob-vH-SSj"/>
+                            <constraint firstItem="Wjg-62-HRh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Zw9-Mm-1PH"/>
+                            <constraint firstItem="Wjg-62-HRh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fbg-8K-qTC"/>
+                            <constraint firstItem="XLu-Tk-wms" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gTP-pA-nhf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YP8-sy-ZVh" secondAttribute="trailing" id="kwo-mB-X93"/>
+                            <constraint firstItem="ylN-vN-sMH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l3g-oV-lZf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YP8-sy-ZVh" secondAttribute="bottom" id="siy-A3-e1q"/>
+                            <constraint firstItem="XLu-Tk-wms" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wip-VP-wB3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="Wjg-62-HRh" id="4u5-53-yjC"/>
+                        <outlet property="progress" destination="ylN-vN-sMH" id="0RM-h4-qxf"/>
+                        <outlet property="retryButton" destination="XLu-Tk-wms" id="hyL-IX-2Eu"/>
+                        <outlet property="tableView" destination="YP8-sy-ZVh" id="Cbe-OZ-DFN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="65" y="131"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

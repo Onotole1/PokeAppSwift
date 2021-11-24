@@ -6,31 +6,48 @@
 //
 
 import UIKit
+import Swinject
+import SwinjectStoryboard
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    private let container: Container = {
+        let container = Container()
+        container.register(PokemonDataSource.self, factory: { resolver in
+            PokemonNetworkDataSource()
+        })
+        container.register(Store<PokemonState, PokemonAction>.self, factory: { resolver in
+            Store(
+                    middlewares: [
+                        GetPokemonDetailsMiddlewareFactory.makeMiddleware(dataSource: container.resolve(PokemonDataSource.self)!),
+                        NextPageMiddlewareFactory.makeMiddleware(dataSource: container.resolve(PokemonDataSource.self)!),
+                        RefreshMiddlewareFactory.makeMiddleware(dataSource: container.resolve(PokemonDataSource.self)!),
+                    ],
+                    defaultValue: PokemonState(),
+                    reducer: PokemonReducerFactory.makeReducer()
+            )
+        })
 
-
+        return container
+    }()
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        injectDependencies()
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        self.window = window
+        let swinjectStoryboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
+        window.rootViewController = swinjectStoryboard.instantiateInitialViewController()
+
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    private func injectDependencies() {
+        container.storyboardInitCompleted(ViewController.self) { (resolver, viewController) in
+            viewController.store = resolver.resolve(Store<PokemonState, PokemonAction>.self)
+        }
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="318" id="73d-4F-nCq" customClass="PokemonCell" customModule="PokeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="985" height="318"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="73d-4F-nCq" id="fxa-ga-391">
+                <rect key="frame" x="0.0" y="0.0" width="985" height="318"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5c-PK-TSt">
+                        <rect key="frame" x="20" y="11" width="945" height="48"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcJ-UL-dZU">
+                                <rect key="frame" x="897" y="0.0" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tcJ-UL-dZU" secondAttribute="height" multiplier="1:1" id="VhR-Zz-a84"/>
+                                </constraints>
+                                <state key="normal" title="retry" image="retry"/>
+                                <connections>
+                                    <action selector="retryClicked:" destination="73d-4F-nCq" eventType="touchDown" id="eRD-dh-gur"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemonImage" translatesAutoresizingMaskIntoConstraints="NO" id="4Dl-lt-1TM">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Dl-lt-1TM" secondAttribute="height" multiplier="1:1" id="Pgi-Ts-Tqn"/>
+                                    <constraint firstAttribute="width" constant="48" id="iIU-Me-Tri"/>
+                                    <constraint firstAttribute="height" constant="48" id="t6j-bz-ZBh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hj-2g-vJG">
+                                <rect key="frame" x="64" y="0.0" width="881" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-SV-afr">
+                                <rect key="frame" x="897" y="0.0" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LHi-SV-afr" secondAttribute="height" multiplier="1:1" id="V3R-o5-uxN"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5hj-2g-vJG" firstAttribute="top" secondItem="S5c-PK-TSt" secondAttribute="top" id="80p-Iw-XyF"/>
+                            <constraint firstAttribute="trailing" secondItem="tcJ-UL-dZU" secondAttribute="trailing" id="NCZ-BD-GRu"/>
+                            <constraint firstAttribute="bottom" secondItem="tcJ-UL-dZU" secondAttribute="bottom" id="Qde-rO-dFf"/>
+                            <constraint firstAttribute="bottom" secondItem="5hj-2g-vJG" secondAttribute="bottom" id="TDM-ak-pbe"/>
+                            <constraint firstItem="tcJ-UL-dZU" firstAttribute="top" secondItem="S5c-PK-TSt" secondAttribute="top" id="TLy-GS-MLC"/>
+                            <constraint firstItem="4Dl-lt-1TM" firstAttribute="top" secondItem="S5c-PK-TSt" secondAttribute="top" id="TpX-K7-B9Y"/>
+                            <constraint firstAttribute="bottom" secondItem="LHi-SV-afr" secondAttribute="bottom" id="cyZ-F7-I2Z"/>
+                            <constraint firstItem="LHi-SV-afr" firstAttribute="top" secondItem="S5c-PK-TSt" secondAttribute="top" id="dY1-6a-acj"/>
+                            <constraint firstItem="4Dl-lt-1TM" firstAttribute="leading" secondItem="S5c-PK-TSt" secondAttribute="leading" id="e1p-zO-46h"/>
+                            <constraint firstAttribute="bottom" secondItem="4Dl-lt-1TM" secondAttribute="bottom" id="h9D-ZD-ApO"/>
+                            <constraint firstItem="5hj-2g-vJG" firstAttribute="leading" secondItem="4Dl-lt-1TM" secondAttribute="trailing" constant="16" id="peB-8e-bfM"/>
+                            <constraint firstAttribute="trailing" secondItem="LHi-SV-afr" secondAttribute="trailing" id="xV7-x4-BR0"/>
+                            <constraint firstAttribute="trailing" secondItem="5hj-2g-vJG" secondAttribute="trailing" id="xcB-Cu-Npe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="S5c-PK-TSt" secondAttribute="trailing" id="EOK-ZQ-dwO"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="S5c-PK-TSt" secondAttribute="bottom" id="ceM-BJ-YBf"/>
+                    <constraint firstItem="S5c-PK-TSt" firstAttribute="top" secondItem="fxa-ga-391" secondAttribute="topMargin" id="f24-uB-phc"/>
+                    <constraint firstItem="S5c-PK-TSt" firstAttribute="leading" secondItem="fxa-ga-391" secondAttribute="leadingMargin" id="fuq-Q5-lRo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="5hj-2g-vJG" id="Tfa-EH-gQP"/>
+                <outlet property="pokemonImage" destination="4Dl-lt-1TM" id="6b0-hB-f7l"/>
+                <outlet property="progress" destination="LHi-SV-afr" id="ExU-lt-7fE"/>
+                <outlet property="retry" destination="tcJ-UL-dZU" id="lBI-JV-LxC"/>
+            </connections>
+            <point key="canvasLocation" x="355.79710144927537" y="95.380434782608702"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pokemonImage" width="128" height="128"/>
+        <image name="retry" width="75" height="75"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
